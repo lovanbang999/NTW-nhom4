@@ -1,9 +1,8 @@
-import ExampleComponent from './components/exampleComponent';
+import Home from './pages/home';
 import Register from './pages/register';
 import Login from './pages/login';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <Route path="/" element ={<Login/>} />
         <Route path="/login" element ={<Login/>} />
         <Route path='/register' element ={<Register/>} />
-        <Route path="/home" element ={<ExampleComponent/>} />
+        <Route path="/home" element ={<Home/>} />
       </Routes>
     </Box>
     </>

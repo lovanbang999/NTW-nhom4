@@ -1,5 +1,5 @@
 import * as React from 'react'
-import logo from './image/logo.svg'
+import logo from '../assets/image/logo.svg'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -15,11 +15,14 @@ import MenuItem from '@mui/material/MenuItem'
 import SearchIcon from '@mui/icons-material/Search'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const pages = ['Home', 'Blog', 'Contact']
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
+  const navigate = useNavigate()
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
   }
@@ -65,6 +68,12 @@ function Header() {
       }
     }
   }))
+
+    const handleLogout = () => {
+      localStorage.removeItem("token")
+      navigate("/login")
+      toast.success("Log out success")
+    }
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, marginBottom: 0.5 }}>
       <Container maxWidth="xl">
@@ -127,11 +136,14 @@ function Header() {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
-            <Button variant="contained" sx={{
+            <Button 
+            variant="contained" 
+            onClick={() => handleLogout()}
+            sx={{
               background: 'linear-gradient(to right, rgba(0, 167, 180, 1), rgba(164, 217, 108, 1))',
               color: 'white'
             }}>
-              Sign Up
+              Sign Out
             </Button>
           </Stack>
         </Toolbar>

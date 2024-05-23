@@ -11,6 +11,7 @@ import {
   import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
   import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
   import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
   
   function Register() {
     const [visible, setVisible] = useState(false);
@@ -98,8 +99,6 @@ import {
             </Typography>
             <TextField
               placeholder="Enter your email address"
-              // value={username}
-              // onChange={(e) => setUsername(e.target.value)}
               variant="outlined"
               type="text"
               sx={{
@@ -127,8 +126,6 @@ import {
             </Typography>
             <TextField
               placeholder="Enter your password"
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
               variant="outlined"
               type={visible ? "text" : "password"}
               InputProps={{
@@ -191,11 +188,10 @@ import {
             <Avatar alt="facebook" src="./public/facebook.svg" />
           </Box>
           <Box>
-            <Link
-              href={"/login"}
-              sx={{
-                textDecoration: "none",
-
+            <NavLink
+              to = "/login"
+              style={{
+                textDecoration: 'none',
               }}
             >
               <Typography
@@ -205,7 +201,7 @@ import {
               >
                 You have an account, Sign in
               </Typography>
-            </Link>
+            </NavLink>
           </Box>
           {/* </form> */}
         </Box>

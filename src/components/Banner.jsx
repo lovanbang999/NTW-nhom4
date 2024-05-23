@@ -1,10 +1,12 @@
 import { Box, Typography, Button, Grid } from '@mui/material'
-import man from './image/man.svg'
+import man from '../assets/image/man.svg'
 
 function Banner() {
   return (
-    <Grid container sx={{ background: 'linear-gradient(to bottom, #00B4AA 6.67%, #A4D96C 84.1%)', minHeight: '643px' }}>
-      <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }} sx={{ display: 'flex', alignItems: 'center', padding: '2rem' }}>
+    <Grid 
+      container sx={{ background: 'linear-gradient(to bottom, #00B4AA 6.67%, #A4D96C 84.1%)', minHeight: '643px' }}>
+      <Grid 
+        item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }} sx={{ display: 'flex', alignItems: 'center', padding: '2rem' }}>
         <Box sx={{ color: 'white' }}>
           <Typography variant="h3" component="h1" sx={{ mb: 2, fontWeight: 'bold', fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' } }}>
             Monkey Blogging

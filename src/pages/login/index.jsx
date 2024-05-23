@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , NavLink } from "react-router-dom";
 import { loginApi } from "@/api/UserService";
 import {
   InputAdornment,
@@ -215,10 +215,10 @@ function Login() {
             <Avatar alt="facebook" src="./public/facebook.svg" />
           </Box>
           <Box>
-            <Link
-              href={"/register"}
-              sx={{
-                textDecoration: "none",
+            <NavLink
+              to ="/register"
+              style={{
+                textDecoration: 'none',
               }}
             >
               <Typography
@@ -228,7 +228,7 @@ function Login() {
               >
                 You haven't a account? Sign Up Now !
               </Typography>
-            </Link>
+            </NavLink>
           </Box>
         </form>
       </Box>

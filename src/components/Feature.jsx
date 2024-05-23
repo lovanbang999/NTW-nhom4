@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material'
-import card from './image/card.svg'
+import card from '../assets/image/card.svg'
 
 function Feature() {
   return (
