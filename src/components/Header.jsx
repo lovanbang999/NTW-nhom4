@@ -69,11 +69,11 @@ function Header() {
     }
   }))
 
-    const handleLogout = () => {
-      localStorage.removeItem("token")
-      navigate("/login")
-      toast.success("Log out success")
-    }
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate('/login')
+    toast.success('Log out success')
+  }
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, marginBottom: 0.5 }}>
       <Container maxWidth="xl">
@@ -136,13 +136,13 @@ function Header() {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
-            <Button 
-            variant="contained" 
-            onClick={() => handleLogout()}
-            sx={{
-              background: 'linear-gradient(to right, rgba(0, 167, 180, 1), rgba(164, 217, 108, 1))',
-              color: 'white'
-            }}>
+            <Button
+              variant="contained"
+              onClick={() => handleLogout()}
+              sx={{
+                background: 'linear-gradient(to right, rgba(0, 167, 180, 1), rgba(164, 217, 108, 1))',
+                color: 'white'
+              }}>
               Sign Out
             </Button>
           </Stack>
