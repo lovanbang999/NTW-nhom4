@@ -25,6 +25,7 @@ function SlidesImg() {
       sx={{ 
         display: 'flex', 
         flexWrap: 'wrap', 
+        gap: 2,
         justifyContent: 'space-evenly', 
         margin: '80px 0 50px' }}>
       {cards.map((card) => (
