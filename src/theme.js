@@ -12,7 +12,7 @@ const theme = createTheme({
   },
   typography: {
     // Define your typography styles here
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Montserrat, sans-serif',
     h1: {
       fontSize: '2rem',
       fontWeight: 500
