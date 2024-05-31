@@ -28,8 +28,8 @@ function SlidesImg() {
         gap: '25px',
         justifyContent: 'space-evenly',
         margin: '80px 0 50px' }}>
-      {cards.map((card) => (
-        <Card key={card.title}
+      {cards.map((card, index ) => (
+        <Card key={index}
           sx={{
             width: 346,
             borderRadius: '20px',
@@ -52,8 +52,7 @@ function SlidesImg() {
                   borderRadius: '7px',
                   textAlign:'center',
                   backgroundColor: 'rgba(243, 237, 255, 1)',
-                  textTransform: 'none',
-                  fontFamily: 'Montserrat, sans-serif'
+                  textTransform: 'none'
                 }}>
                 <Typography
                   color={'rgba(107, 107, 107, 1)'}>
@@ -63,7 +62,6 @@ function SlidesImg() {
               <Typography
                 variant='h1'
                 sx = {{
-                  fontFamily: 'Montserrat, sans-serif',
                   color: 'rgba(35, 35, 35, 1)',
                   marginTop: '15px',
                   marginBottom: ' 25px',
@@ -74,7 +72,6 @@ function SlidesImg() {
               <Typography
                 variant="body2"
                 sx = {{
-                  fontFamily: 'Montserrat, sans-serif',
                   color:'rgba(107, 107, 107, 1)' }}>
                   Mar 23 • Andiez Le
               </Typography>
