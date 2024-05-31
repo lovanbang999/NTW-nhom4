@@ -75,7 +75,7 @@ function Header() {
     toast.success('Log out success')
   }
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, marginBottom: 0.5 }}>
+    <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, marginBottom: 0.5, padding: 0 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
           <Avatar alt="LOGO Reactjs" src={logo}/>
@@ -110,7 +110,7 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ fontSize: '1.125rem' }}>{page}</Typography>
+                  <Typography textAlign="center" sx={{ fontSize: '1rem' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -120,7 +120,12 @@ function Header() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', fontSize: '17px', fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
+                sx={{
+                  my: 2, color: 'black', display: 'block', fontSize: '18px', lineHeight: '28px', textTransform: 'none',
+                  '&:hover': {
+                    color: 'rgba(35, 187, 134, 1)'
+                  }
+                }}
               >
                 {page}
               </Button>
@@ -141,7 +146,7 @@ function Header() {
               onClick={() => handleLogout()}
               sx={{
                 background: 'linear-gradient(to right, rgba(0, 167, 180, 1), rgba(164, 217, 108, 1))',
-                color: 'white'
+                color: 'white', whiteSpace: 'nowrap'
               }}>
               Sign Out
             </Button>
