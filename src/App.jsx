@@ -3,7 +3,7 @@ import Register from './pages/register'
 import Login from './pages/login'
 import { Routes, Route } from 'react-router-dom'
 import { Box } from '@mui/material'
-
+import Blog from './pages/blog'
 function App() {
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
           <Route path="/login" element ={<Login/>} />
           <Route path='/register' element ={<Register/>} />
           <Route path="/home" element ={<Home/>} />
+          <Route path="/blog" element ={<Blog/>} />
         </Routes>
       </Box>
     </>

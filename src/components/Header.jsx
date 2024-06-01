@@ -18,7 +18,11 @@ import Stack from '@mui/material/Stack'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-const pages = ['Home', 'Blog', 'Contact']
+const pages = [
+  { name: 'Home', path: '/home' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Contact', path: '/Footer' }
+]
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
@@ -68,7 +72,6 @@ function Header() {
       }
     }
   }))
-
   const handleLogout = () => {
     localStorage.removeItem('token')
     navigate('/login')
@@ -109,8 +112,14 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ fontSize: '1rem' }}>{page}</Typography>
+                <MenuItem key={page.name}
+                  onClick = { () => {
+                    handleCloseNavMenu,
+                    navigate(page.path)
+                  }}>
+                  <Typography textAlign="center" sx={{ fontSize: '1rem' }}>
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -118,8 +127,11 @@ function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick = { () => {
+                  handleCloseNavMenu,
+                  navigate(page.path)
+                }}
                 sx={{
                   my: 2, color: 'black', display: 'block', fontSize: '18px', lineHeight: '28px', textTransform: 'none',
                   '&:hover': {
@@ -127,7 +139,7 @@ function Header() {
                   }
                 }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
