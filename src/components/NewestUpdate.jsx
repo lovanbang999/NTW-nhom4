@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid'
-import pcbig from '@/assets/image/pcbig.svg'
+import Blog from '@/assets/image/blog.png'
 import one from '@/assets/image/one.svg'
 import two from '@/assets/image/two.svg'
 import three from '@/assets/image/three.svg'
@@ -31,11 +31,11 @@ function Banner_Left() {
   return (
     <Stack spacing = {2}>
       <Box sx={{
-        height: isMediumScreen ? 300 : 430,
-        backgroundImage: `url(${pcbig})`,
+        height: isMediumScreen ? 300 : 440,
+        backgroundImage: `url(${Blog})`,
         backgroundSize: 'cover',
         backgroundPosition: 'top center',
-        borderRadius: '5%'
+        borderRadius: '20px'
       }}>
       </Box>
       <Stack>

@@ -1,12 +1,19 @@
-import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import HeaderContent from './HeaderContent'
+import Content from './Content'
+import Author from './Author'
+import RelateBlog from './RelateBlog'
+import Footer from '@/components/Footer'
 import { Stack } from '@mui/material'
 
 function Blog() {
   return (
     <Stack>
       <Header />
-      ahhahahhahahhahahhaha hihihihi blog hello world!
+      <HeaderContent />
+      <Content />
+      <Author />
+      <RelateBlog />
       <Footer />
     </Stack>
   )

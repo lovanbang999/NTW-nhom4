@@ -2,14 +2,13 @@ import { Box, Container, Typography, Grid } from '@mui/material'
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
-// import { LineWeight } from '@mui/icons-material'
 import { Link } from '@mui/material'
 
 
 export default function Footer() {
   return (
     <>
-      <Grid container bgcolor='#F5F5F7'>
+      <Grid id="footer" container bgcolor='#F5F5F7'>
         <Container
           maxWidth ='lg'
           sx={{

@@ -21,7 +21,7 @@ import { toast } from 'react-toastify'
 const pages = [
   { name: 'Home', path: '/home' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/Footer' }
+  { name: 'Contact', path: '/contact' }
 ]
 
 function Header() {
@@ -78,10 +78,11 @@ function Header() {
     toast.success('Log out success')
   }
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, marginBottom: 0.5, padding: 0 }}>
+    <AppBar
+      position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 1)', boxShadow: 0, my: 1, padding: 0 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
-          <Avatar alt="LOGO Reactjs" src={logo}/>
+          <Avatar alt="Logo Reactjs" src={logo}/>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -112,19 +113,29 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name}
+                <MenuItem
+                  key={page.name}
                   onClick = { () => {
                     handleCloseNavMenu,
                     navigate(page.path)
                   }}>
-                  <Typography textAlign="center" sx={{ fontSize: '1rem' }}>
+                  <Typography textAlign="center"
+                    sx={{
+                      fontSize: '1rem',
+                      '&:hover': {
+                        color: 'rgba(35, 187, 134, 1)'
+                      }
+                    }}>
                     {page.name}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' }
+          }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
@@ -133,7 +144,12 @@ function Header() {
                   navigate(page.path)
                 }}
                 sx={{
-                  my: 2, color: 'black', display: 'block', fontSize: '18px', lineHeight: '28px', textTransform: 'none',
+                  my: 2,
+                  color: 'black',
+                  display: 'block',
+                  fontSize: '19px',
+                  lineHeight: '28px',
+                  textTransform: 'none',
                   '&:hover': {
                     color: 'rgba(35, 187, 134, 1)'
                   }
