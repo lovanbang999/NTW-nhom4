@@ -16,22 +16,44 @@ function Contact() {
         width="100%"
         height="auto"
       >
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          mb: 3
+        }}>
+          <Typography
+            fontWeight="bold"
+            sx = {{
+              background: 'linear-gradient(to right, #66CDAA, #87CEFA)',
+              WebkitBackgroundClip: 'text', // Cho trình duyệt Webkit
+              WebkitTextFillColor: 'transparent', // Loại bỏ màu chữ gốc
+              backgroundClip: 'text', // Cho các trình duyệt khác
+              textFillColor: 'transparent',
+              mt: 6,
+              fontSize: { xs: 40, sm: 50, md: 60 }
+            }}>
+      Monkey Blogging
+          </Typography>
+        </Box>
         <Box
           sx= {{
-            display: 'flex',
+            display: { xs: 'column', sm: 'column', md: 'flex' },
             alignItems: 'center',
             justifyContent: 'space-between',
-            width: '70%',
-            margin: '0 auto'
+            width: '65%',
+            margin: '50px auto',
+            gap: '20px'
           }}>
           <Box>
             <Box
               sx={{
                 width: 'auto',
+                minWidth: 250,
                 height: '160px',
+                mb: { xs: 3, sm: 5, md: 7 },
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                backgroundImage: 'url(./public/react.svg)'
+                backgroundImage: 'url(./public/monkey.svg)'
               }}
             ></Box>
             <Typography
@@ -45,7 +67,7 @@ function Contact() {
             </Typography>
             <Box
               sx = {{
-                my : 13,
+                mb: 10,
                 textAlign: 'center'
               }}>
               <Typography color={'#2EBAC1'}
@@ -80,7 +102,7 @@ function Contact() {
                 variant="outlined"
                 type="text"
                 sx={{
-                  width: '500px',
+                  width: { xs: 350, sm: 470, md: 500 },
                   backgroundColor: ' white',
                   borderRadius: '20px',
                   marginTop: '8px',
@@ -107,7 +129,7 @@ function Contact() {
                 variant="outlined"
                 type="text"
                 sx={{
-                  width: '500px',
+                  width: { xs: 350, sm: 470, md: 500 },
                   backgroundColor: ' white',
                   borderRadius: '20px',
                   marginTop: '8px',
@@ -134,7 +156,7 @@ function Contact() {
                 variant="outlined"
                 type="text"
                 sx={{
-                  width: '500px',
+                  width: { xs: 350, sm: 470, md: 500 },
                   backgroundColor: ' white',
                   borderRadius: '20px',
                   marginTop: '8px',
@@ -161,7 +183,7 @@ function Contact() {
                 variant="outlined"
                 type="text"
                 sx={{
-                  width: '500px',
+                  width: { xs: 350, sm: 470, md: 500 },
                   backgroundColor: ' white',
                   borderRadius: '20px',
                   marginTop: '8px',
@@ -185,10 +207,19 @@ function Contact() {
                 variant="contained"
                 color="info"
                 sx={{
-                  margin: '12px 0',
+                  margin: '30px auto',
                   width: '200px',
                   lineHeight: '40px',
-                  background: 'linear-gradient(to right, #00A7B4, #A4D96C)'
+                  background: 'linear-gradient(to right, #66CDAA, #87CEFA)',
+                  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: 'linear-gradient(to right, #00A7B4, #A4D96C)',
+                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.15)',
+                    '&:active': {
+                      background: 'linear-gradient(to right, #66CDAA, #87CEFA)'
+                    }
+                  }
                 }}
               >
                 Submit
