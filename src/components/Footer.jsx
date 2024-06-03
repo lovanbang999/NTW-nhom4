@@ -25,7 +25,7 @@ export default function Footer() {
                     marginLeft={'40px'}
                     sx={{
                       Width: '85',
-                      minHeight: 85,
+                      minHeight: 95,
                       textAlign: 'center',
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: '20%',
@@ -64,7 +64,7 @@ export default function Footer() {
                 >Contanct</Typography>
                 <Typography fontSize={'14px'}>No.24, Lane 165, Khuong Thuong Street</Typography>
                 <Typography fontSize={'14px'}>+(84) 123456789</Typography>
-                <Typography fontSize={'14px'}>Email@gmail.com</Typography>
+                <Typography fontSize={'14px'}>joncer.609@gmail.com</Typography>
               </Grid>
             </Grid>
           </Grid>

@@ -6,6 +6,20 @@ import {
 } from '@mui/material'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import * as Yup from 'yup'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+
+const Schema = Yup.object({
+  fullname: Yup.string()
+    .required('Please enter your fullname.'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Please enter your email. '),
+  phone: Yup.string()
+    .matches( /^[0-9]+$/, 'Invalid phone number. ')
+    .required('Please enter your phone number. '),
+  message: Yup.string().min(50, 'Message must be at least 50 characters long.').required('Please leave us your message. ')
+})
 
 function Contact() {
 
@@ -87,122 +101,133 @@ function Contact() {
               </Typography>
             </Box>
           </Box>
-          <Box>
-            <Box marginTop={'24px'} textAlign={'left'}>
-              <Typography
-                variant="h4"
-                fontSize={'16px'}
-                fontWeight={'600'}
-                color={'#3C4563'}
-              >
+
+          <Formik
+            initialValues={{ fullname: '', email: '', phone: '', message: '' }}
+            validationSchema={Schema}
+          >
+            <Form>
+              <Box marginTop={'24px'} textAlign={'left'}>
+                <Typography
+                  variant="h4"
+                  fontSize={'16px'}
+                  fontWeight={'600'}
+                  color={'#3C4563'}
+                >
                Fullname
-              </Typography>
-              <TextField
-                placeholder=" Name"
-                variant="outlined"
-                type="text"
-                sx={{
-                  width: { xs: 350, sm: 470, md: 500 },
-                  backgroundColor: ' white',
-                  borderRadius: '20px',
-                  marginTop: '8px',
-                  '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
-                    borderRadius: '20px'
-                  },
-                  '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '14px 14px'
-                  }
-                }}
-              />
-            </Box>
-            <Box marginTop={'24px'} textAlign={'left'}>
-              <Typography
-                variant="h4"
-                fontSize={'16px'}
-                fontWeight={'600'}
-                color={'#3C4563'}
-              >
+                </Typography>
+                <Field
+                  name="fullname"
+                  as={TextField}
+                  placeholder=" Name"
+                  variant="outlined"
+                  type="text"
+                  sx={{
+                    width: { xs: 350, sm: 470, md: 500 },
+                    backgroundColor: ' white',
+                    borderRadius: '20px',
+                    marginTop: '8px',
+                    '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
+                      borderRadius: '20px'
+                    },
+                    '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '14px 14px'
+                    }
+                  }}
+                />
+                <ErrorMessage name="fullname" component="p" style={{ color: 'red' }} />
+              </Box>
+              <Box marginTop={'24px'} textAlign={'left'}>
+                <Typography
+                  variant="h4"
+                  fontSize={'16px'}
+                  fontWeight={'600'}
+                  color={'#3C4563'}
+                >
                 Email address
-              </Typography>
-              <TextField
-                placeholder="email@gmail.com"
-                variant="outlined"
-                type="text"
-                sx={{
-                  width: { xs: 350, sm: 470, md: 500 },
-                  backgroundColor: ' white',
-                  borderRadius: '20px',
-                  marginTop: '8px',
-                  '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
-                    borderRadius: '20px'
-                  },
-                  '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '14px 14px'
-                  }
-                }}
-              />
-            </Box>
-            <Box marginTop={'24px'} textAlign={'left'}>
-              <Typography
-                variant="h4"
-                fontSize={'16px'}
-                fontWeight={'600'}
-                color={'#3C4563'}
-              >
+                </Typography>
+                <Field
+                  name="email"
+                  as={TextField}
+                  placeholder="email@gmail.com"
+                  variant="outlined"
+                  type="text"
+                  sx={{
+                    width: { xs: 350, sm: 470, md: 500 },
+                    backgroundColor: ' white',
+                    borderRadius: '20px',
+                    marginTop: '8px',
+                    '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
+                      borderRadius: '20px'
+                    },
+                    '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '14px 14px'
+                    }
+                  }}
+                />
+                <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
+              </Box>
+              <Box marginTop={'24px'} textAlign={'left'}>
+                <Typography
+                  variant="h4"
+                  fontSize={'16px'}
+                  fontWeight={'600'}
+                  color={'#3C4563'}
+                >
                 Phone number
-              </Typography>
-              <TextField
-                placeholder="Enter your phone number"
-                variant="outlined"
-                type="text"
-                sx={{
-                  width: { xs: 350, sm: 470, md: 500 },
-                  backgroundColor: ' white',
-                  borderRadius: '20px',
-                  marginTop: '8px',
-                  '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
-                    borderRadius: '20px'
-                  },
-                  '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '14px 14px'
-                  }
-                }}
-              />
-            </Box>
-            <Box marginTop={'24px'} textAlign={'left'}>
-              <Typography
-                variant="h4"
-                fontSize={'16px'}
-                fontWeight={'600'}
-                color={'#3C4563'}
-              >
+                </Typography>
+                <Field
+                  name="phone"
+                  as={TextField}
+                  placeholder="Enter your phone number"
+                  variant="outlined"
+                  type="text"
+                  sx={{
+                    width: { xs: 350, sm: 470, md: 500 },
+                    backgroundColor: ' white',
+                    borderRadius: '20px',
+                    marginTop: '8px',
+                    '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
+                      borderRadius: '20px'
+                    },
+                    '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '14px 14px'
+                    }
+                  }}
+                />
+                <ErrorMessage name="phone" component="div" style={{ color: 'red' }} />
+              </Box>
+              <Box marginTop={'24px'} textAlign={'left'}>
+                <Typography
+                  variant="h4"
+                  fontSize={'16px'}
+                  fontWeight={'600'}
+                  color={'#3C4563'}
+                >
                 Let us know your feeling
-              </Typography>
-              <TextField
-                placeholder="Your message"
-                variant="outlined"
-                type="text"
-                sx={{
-                  width: { xs: 350, sm: 470, md: 500 },
-                  backgroundColor: ' white',
-                  borderRadius: '20px',
-                  marginTop: '8px',
-                  '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
-                    borderRadius: '20px'
-                  },
-                  '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '14px 14px'
-                  }
-                }}
-              />
-            </Box>
-            <Box
-              display={'flex'}
-              alignItems={'center'}
-              justifyContent={'space-around'}
-              width={'80%'}
-              margin={'8px 0 8px 10%'}
-            >
+                </Typography>
+                <Field
+                  name='message'
+                  as={TextField}
+                  placeholder="Your message"
+                  variant="outlined"
+                  type="text"
+                  sx={{
+                    width: { xs: 350, sm: 470, md: 500 },
+                    backgroundColor: ' white',
+                    borderRadius: '20px',
+                    marginTop: '8px',
+                    '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
+                      borderRadius: '20px'
+                    },
+                    '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '14px 14px'
+                    }
+                  }}
+                />
+                <ErrorMessage name="message" component="div" style={{ color: 'red' }} />
+              </Box>
+
               <Button
                 variant="contained"
                 color="info"
@@ -224,8 +249,8 @@ function Contact() {
               >
                 Submit
               </Button>
-            </Box>
-          </Box>
+            </Form>
+          </Formik>
         </Box>
       </Box>
       <Footer/>
