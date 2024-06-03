@@ -8,6 +8,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import * as Yup from 'yup'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { toast, Slide } from 'react-toastify'
 
 const Schema = Yup.object({
   fullname: Yup.string()
@@ -16,6 +17,7 @@ const Schema = Yup.object({
     .email('Invalid email')
     .required('Please enter your email. '),
   phone: Yup.string()
+    .min(9, 'Phone number must be at least 9 digits long')
     .matches( /^[0-9]+$/, 'Invalid phone number. ')
     .required('Please enter your phone number. '),
   message: Yup.string().min(50, 'Message must be at least 50 characters long.').required('Please leave us your message. ')
@@ -105,6 +107,10 @@ function Contact() {
           <Formik
             initialValues={{ fullname: '', email: '', phone: '', message: '' }}
             validationSchema={Schema}
+            onSubmit={ () => {
+              toast.success('Thank you for your message. ',
+                { transition: Slide, autoClose: 3000 })
+            }}
           >
             <Form>
               <Box marginTop={'24px'} textAlign={'left'}>
@@ -229,6 +235,7 @@ function Contact() {
               </Box>
 
               <Button
+                type="submit"
                 variant="contained"
                 color="info"
                 sx={{
