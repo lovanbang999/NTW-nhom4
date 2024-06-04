@@ -27,7 +27,7 @@ function Contact() {
 
   return (
     <Box>
-      <Header />
+      <Header/>
       <Box
         width="100%"
         height="auto"

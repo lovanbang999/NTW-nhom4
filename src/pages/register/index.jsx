@@ -1,31 +1,14 @@
 import {
-  InputAdornment,
   TextField,
   Box,
   Typography,
-  IconButton,
   Button,
   Avatar
 } from '@mui/material'
 import AppleIcon from '@mui/icons-material/Apple'
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Register() {
-  const [visible, setVisible] = useState(false)
-
-  const EndAdorment = ({ visible, setVisible }) => {
-    return (
-      <InputAdornment position="end">
-        <IconButton onClick={() => setVisible(!visible)}>
-          {visible ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
-        </IconButton>
-      </InputAdornment>
-    )
-  }
-
   return (
     <Box width="100vw" height="100vh">
       <Box
@@ -33,10 +16,9 @@ function Register() {
         height="auto"
         alignItems={'center'}
         position={'absolute'}
-        top={'50%'}
         left={'50%'}
         textAlign={'center'}
-        sx={{ transform: 'translate(-50%, -50%)' }}
+        sx={{ transform: 'translateX(-50%)' }}
       >
         <Box
           sx={{
@@ -87,7 +69,6 @@ function Register() {
             }}
           />
         </Box>
-
         <Box marginTop={'24px'} textAlign={'left'}>
           <Typography
             variant="h4"
@@ -127,12 +108,35 @@ function Register() {
           <TextField
             placeholder="Enter your password"
             variant="outlined"
-            type={visible ? 'text' : 'password'}
-            InputProps={{
-              endAdornment: (
-                <EndAdorment visible={visible} setVisible={setVisible} />
-              )
+            type= 'text'
+            sx={{
+              width: '500px',
+              backgroundColor: ' white',
+              borderRadius: '20px',
+              marginTop: '8px',
+              '& .css-7ohhq8-MuiInputBase-root-MuiOutlinedInput-root': {
+                borderRadius: '20px'
+              },
+              '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                padding: '14px 14px'
+              }
             }}
+          />
+        </Box>
+
+        <Box marginTop={'24px'} textAlign={'left'}>
+          <Typography
+            variant="h4"
+            fontSize={'16px'}
+            fontWeight={'600'}
+            color={'#3C4563'}
+          >
+            Return password
+          </Typography>
+          <TextField
+            placeholder="Enter your password"
+            variant="outlined"
+            type= 'text'
             sx={{
               width: '500px',
               backgroundColor: ' white',
