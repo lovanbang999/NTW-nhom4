@@ -17,7 +17,7 @@ import {
 import AppleIcon from '@mui/icons-material/Apple'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Copyright from '@/components/Copyright'
 
 function Register() {
   const navigate = useNavigate()
@@ -263,6 +263,7 @@ function Register() {
               </Typography>
             </NavLink>
           </Box>
+          <Copyright sx={{ mt: 6, mb: 1 }} />
       </Box>
     </Box>
   )

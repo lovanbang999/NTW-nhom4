@@ -15,6 +15,8 @@ import {
 import AppleIcon from '@mui/icons-material/Apple'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import Copyright from '@/components/Copyright'
+
 
 function Login() {
   const navigate = useNavigate()
@@ -243,6 +245,7 @@ function Login() {
             </NavLink>
           </Box>
         </form>
+        <Copyright sx={{ mt: 6, mb: 1 }} />
       </Box>
     </Box>
   )
